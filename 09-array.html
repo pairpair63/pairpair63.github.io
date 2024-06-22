@@ -9,7 +9,7 @@
     <title>08-Loop</title>
     <style>
         body {
-            background-color: #ecedcf;
+            background-color: #fbff7d;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
@@ -41,7 +41,7 @@
 <body>
 
     <div class="jumbotron pt-5 bg-primary text-white">
-        <video src="https://videos.pexels.com/video-files/15377024/15377024-sd_640_360_25fps.mp4" autoplay loop muted></video>
+        <video src="https://videos.pexels.com/video-files/1860079/1860079-uhd_2560_1440_25fps.mp4" autoplay loop muted></video>
         <div class="container">
             <h1>Arphatsara Arame</h1>
             <p>IT Rayong</p>
@@ -80,18 +80,20 @@
                         <a class="nav-link disabled">Disabled</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form id="searchForm" class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="search" aria-label="ค้นหา">
+                    <button class="btn btn-outline-success" type="submit">submit</button>
+                    <button type="reset" class="btn btn-outline-danger">Reset</button> <!-- ย้ายปุ่มรีเซ็ทไปอยู่ในฟอร์ม -->
                 </form>
+                
             </div>
         </div>
     </nav>
 
     <div class="card mt-4 mx-auto" style="width: 25rem;">
-        <img src="https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="...">
+        <img src="https://images.pexels.com/photos/1280560/pexels-photo-1280560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title" style="color: brown;">Car Data</h5>
+            <h5 class="card-title" style="color: rgb(241, 106, 57);">Car Data</h5>
             <p class="card-text">
                 
                 <button type="submit" class="btn btn-primary w-25" onclick="submit_click()">Submit</button>
@@ -158,7 +160,19 @@
                 row.appendChild(column)
                 table.appendChild(row)
             }
-            }
+        }
+    function reset_click() {
+    document.getElementById('output1').innerHTML = ''; // ล้างเนื้อหาใน <p id="output1">
+    document.getElementById('output2').innerHTML = ''; // ล้างเนื้อหาใน <p id="output2">
+    document.getElementById('output3').innerHTML = ''; // ล้างเนื้อหาใน <p id="output3">
+    document.getElementById('output4').innerHTML = ''; // ล้างเนื้อหาใน <p id="output4">
+    
+    // ล้างแถวของตารางที่แสดงข้อมูลรถ
+    let tableBody = document.querySelector('#table_car tbody');
+    tableBody.innerHTML = '';
+}
+
+            
         
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
