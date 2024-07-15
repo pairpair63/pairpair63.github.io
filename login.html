@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+          $('head').load('head.html')
+          $('#header').load('header.html')
+        })
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+    <div id="header"></div>
+
+      <div class="col-3 bg-light mx-auto mt-5 p-3 border">
+        <!-- <form> -->
+            <div class="mb-3">
+              <label class="form-label">Username</label>
+              <input type="text" class="form-control" id="user">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" id="pass">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="click_submit()">Submit</button>
+            <button type="reset" class="btn btn-primary" onclick="clear_data()">Reset</button>
+          <!-- </form> -->
+      </div>
+      
+
+    <script>
+        let u = 'admin'
+        let p = '1234'
+
+        function click_submit() 
+        {
+            if (u == document.getElementById('user').value && p == document.getElementById('pass').value) 
+            {
+                alert('ถูกต้อง')
+                sessionStorage.setItem('user', document.getElementById('user').value)
+            
+            if (sessionStorage.getItem('user') != null )
+            {
+                document.getElementById('output1').innerHTML = 'สวัสดี คุณ' + sessionStorage.getItem('user')
+            }
+                document.getElementById('log').hidden = true
+                document.getElementById('btn_logout').hidden = false
+
+                location.href = "page2.html";
+            }
+            else
+            {
+                alert('ไม่ถูกต้อง')
+                clear_data()
+            }
+        }
+
+        function clear_data()
+        {
+            document.getElementById('user').value = null
+            document.getElementById('pass').value = null
+        }
+
+        
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
